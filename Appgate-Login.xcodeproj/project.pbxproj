@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
-		1C4C259626C73CD3009BABD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259526C73CD3009BABD8 /* ContentView.swift */; };
+		1C4C259626C73CD3009BABD8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259526C73CD3009BABD8 /* Home.swift */; };
 		1C4C259826C73CD9009BABD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C259726C73CD9009BABD8 /* Assets.xcassets */; };
 		1C4C259B26C73CD9009BABD8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C259A26C73CD9009BABD8 /* Preview Assets.xcassets */; };
 		1C4C25A526C73CDA009BABD8 /* Appgate_LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25A426C73CDA009BABD8 /* Appgate_LoginTests.swift */; };
 		1C4C25AF26C73CDA009BABD8 /* Appgate_LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25AE26C73CDA009BABD8 /* Appgate_LoginUITests.swift */; };
 		1C4C25B126C73CDA009BABD8 /* Appgate_LoginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25B026C73CDA009BABD8 /* Appgate_LoginUITestsLaunchTests.swift */; };
+		1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25BF26C74F6F009BABD8 /* Login.swift */; };
+		1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C126C75041009BABD8 /* SignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
-		1C4C259526C73CD3009BABD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1C4C259526C73CD3009BABD8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		1C4C259726C73CD9009BABD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C4C259A26C73CD9009BABD8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C4C25A026C73CDA009BABD8 /* Appgate-LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appgate-LoginTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,8 @@
 		1C4C25AA26C73CDA009BABD8 /* Appgate-LoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Appgate-LoginUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C25AE26C73CDA009BABD8 /* Appgate_LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginUITests.swift; sourceTree = "<group>"; };
 		1C4C25B026C73CDA009BABD8 /* Appgate_LoginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1C4C25BF26C74F6F009BABD8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		1C4C25C126C75041009BABD8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,8 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C4C25BE26C74F16009BABD8 /* View */,
 				1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */,
-				1C4C259526C73CD3009BABD8 /* ContentView.swift */,
 				1C4C259726C73CD9009BABD8 /* Assets.xcassets */,
 				1C4C259926C73CD9009BABD8 /* Preview Content */,
 			);
@@ -125,6 +129,16 @@
 				1C4C25B026C73CDA009BABD8 /* Appgate_LoginUITestsLaunchTests.swift */,
 			);
 			path = "Appgate-LoginUITests";
+			sourceTree = "<group>";
+		};
+		1C4C25BE26C74F16009BABD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C4C259526C73CD3009BABD8 /* Home.swift */,
+				1C4C25BF26C74F6F009BABD8 /* Login.swift */,
+				1C4C25C126C75041009BABD8 /* SignUp.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4C259626C73CD3009BABD8 /* ContentView.swift in Sources */,
+				1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */,
+				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
+				1C4C259626C73CD3009BABD8 /* Home.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

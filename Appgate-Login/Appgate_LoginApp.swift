@@ -11,7 +11,7 @@ import SwiftUI
 struct Appgate_LoginApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
         }
     }
 }
