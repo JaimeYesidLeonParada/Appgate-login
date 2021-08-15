@@ -10,6 +10,7 @@ import SwiftUI
 struct Login: View {
     @State var email = ""
     @State var password = ""
+    @State var isPresentedAttempt = false
     
     var body: some View {
         VStack{
@@ -27,7 +28,7 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
                 
-                TextField("jaime.leon@gmail.com", text: $email)
+                TextField("Email", text: $email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
@@ -40,7 +41,7 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
                 
-                SecureField("12345", text: $password)
+                SecureField("Password", text: $password)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
@@ -49,25 +50,33 @@ struct Login: View {
             
             // Forget password
             Button(action: {}, label: {
-                Text("Forgot password")
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
+                Text("Validate")
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20.0, weight: .semibold))
+                
             })
+                .clipShape(Capsule())
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.top, 10.0)
+                
             
             // Next Button
-            Button(action: {}, label: {
-                Image(systemName: "arrow.right")
-                    .font(.system(size: 20.0, weight: .bold))
-                    .foregroundColor(.white)
+            Button(action: {
+                isPresentedAttempt.toggle()
+            }, label: {
+                Text("Show Attemps")
                     .padding()
-                    .background(Color(.black))
-                    .clipShape(Circle())
-                    .shadow(color: Color(.blue).opacity(0.6), radius: 5.0, x: 0.0, y: 0.0)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20.0, weight: .bold))
             })
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10.0)
+                .clipShape(Capsule())
+                .frame(maxWidth: .infinity, alignment: .bottom)
+                .padding(.top, 100.0)
+            
+                .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
         }
         .padding()
     }

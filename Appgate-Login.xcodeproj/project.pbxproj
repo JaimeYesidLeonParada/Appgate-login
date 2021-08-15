@@ -17,6 +17,8 @@
 		1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25BF26C74F6F009BABD8 /* Login.swift */; };
 		1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C126C75041009BABD8 /* SignUp.swift */; };
 		1C4C25C526C96C2D009BABD8 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C426C96C2D009BABD8 /* String+Helper.swift */; };
+		1C4C25C926C98255009BABD8 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C826C98255009BABD8 /* Attempt.swift */; };
+		1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		1C4C25BF26C74F6F009BABD8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1C4C25C126C75041009BABD8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		1C4C25C426C96C2D009BABD8 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
+		1C4C25C826C98255009BABD8 /* Attempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
+		1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAttempt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C4C25CA26C9A162009BABD8 /* Models */,
 				1C4C25C326C96B44009BABD8 /* Extension */,
 				1C4C25BE26C74F16009BABD8 /* View */,
 				1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */,
@@ -140,6 +145,7 @@
 				1C4C259526C73CD3009BABD8 /* Home.swift */,
 				1C4C25BF26C74F6F009BABD8 /* Login.swift */,
 				1C4C25C126C75041009BABD8 /* SignUp.swift */,
+				1C4C25C826C98255009BABD8 /* Attempt.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,6 +156,14 @@
 				1C4C25C426C96C2D009BABD8 /* String+Helper.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		1C4C25CA26C9A162009BABD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +299,10 @@
 				1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
 				1C4C259626C73CD3009BABD8 /* Home.swift in Sources */,
+				1C4C25C926C98255009BABD8 /* Attempt.swift in Sources */,
 				1C4C25C526C96C2D009BABD8 /* String+Helper.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
+				1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

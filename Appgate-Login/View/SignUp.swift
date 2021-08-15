@@ -14,6 +14,7 @@ struct SignUp: View {
     @State var emailAlert = ""
     @State var passwordAlert = ""
     @State var confirmPasswordAlert = ""
+    @State var isPresentedAttempt = false
     
     var body: some View {
         VStack{
@@ -92,7 +93,7 @@ struct SignUp: View {
                         .padding()
                 }
                 
-                SecureField("Confirm", text: $confirmPassword)
+                SecureField("Password", text: $confirmPassword)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
@@ -109,17 +110,20 @@ struct SignUp: View {
                 .padding(.top, 10.0)
             
             // Next Button
-            Button(action: {}, label: {
-                Image(systemName: "arrow.right")
-                    .font(.system(size: 20.0, weight: .bold))
-                    .foregroundColor(.white)
+            Button(action: {
+                isPresentedAttempt.toggle()
+            }, label: {
+                Text("Create Account")
                     .padding()
-                    .background(Color(.black))
-                    .clipShape(Circle())
-                    .shadow(color: Color(.blue).opacity(0.6), radius: 5.0, x: 0.0, y: 0.0)
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20.0, weight: .semibold))
             })
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10.0)
+                .clipShape(Capsule())
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.top, 20.0)
+                .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
+
         }
         .padding()
     }
