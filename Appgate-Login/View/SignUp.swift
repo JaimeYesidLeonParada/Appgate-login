@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct SignUp: View {
-    @State var email = ""
-    @State var password = ""
+    @State var user = User(email: "", password: "")
     @State var confirmPassword = ""
     @State var emailAlert = ""
     @State var passwordAlert = ""
     @State var confirmPasswordAlert = ""
-        
-    private var taskManager = TaskManager.shared
+    @State var showingAlert = false
+    @State var messageAlert = ""
     
     var body: some View {
         VStack{
@@ -41,10 +40,10 @@ struct SignUp: View {
                         .padding()
                 }
                 
-                TextField("Email", text: $email)
+                TextField("Email", text: $user.email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
-                    .onChange(of: email){ newValue in
+                    .onChange(of: user.email){ newValue in
                         emailAlert = ""
                         
                         if !newValue.isValidEmail && !newValue.isEmpty {
@@ -67,10 +66,10 @@ struct SignUp: View {
                         .padding()
                 }
                 
-                SecureField("Password", text: $password)
+                SecureField("Password", text: $user.password)
                     .font(.system(size: 20.0, weight: .semibold))
                     .foregroundColor(Color.black)
-                    .onChange(of: password) { newValue in
+                    .onChange(of: user.password) { newValue in
                         passwordAlert = ""
                         
                         if !newValue.isValidPassword && !newValue.isEmpty {
@@ -101,7 +100,7 @@ struct SignUp: View {
                         
                         if newValue.isEmpty { return }
                         
-                        if confirmPassword == password {
+                        if confirmPassword == user.password {
                             confirmPasswordAlert = "✅"
                         } else {
                             confirmPasswordAlert = "Need to match"
@@ -112,18 +111,23 @@ struct SignUp: View {
             
             // Next Button
             Button(action: {
-                if email.isValidEmail && password.isValidPassword && password == confirmPassword {
-                    let user = User(email: email, password: password)
-                    taskManager.createUser(user: user)
-                    email = ""
-                    password = ""
+                messageAlert = "Verify that the data is not empty and try again."
+                
+                if user.email.isValidEmail && user.password.isValidPassword && user.password == confirmPassword {
+                    
+                    TaskManager.shared.createUser(user: user)
+                    user.email = ""
+                    user.password = ""
                     confirmPassword = ""
                     emailAlert = ""
                     passwordAlert = ""
                     confirmPasswordAlert = ""
                     
                     UIApplication.shared.endEditing()
+                    
+                    messageAlert = "User created successfully, congratulations."
                 }
+                showingAlert = true
             }, label: {
                 Text("Create Account")
                     .padding()
@@ -133,6 +137,9 @@ struct SignUp: View {
             })
                 .clipShape(Capsule())
                 .frame(maxWidth: .infinity, alignment: .trailing)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Validation"), message: Text(messageAlert), dismissButton: .default(Text("Close")))
+                }
         }
         .padding()
     }

@@ -88,5 +88,4 @@ class TaskManager {
         
         return timestamp
     }
-    
 }

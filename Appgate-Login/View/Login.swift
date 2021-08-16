@@ -13,9 +13,6 @@ struct Login: View {
     @State var messageAlert = ""
     @State var isPresentedAttempt = false
     
-    
-    private var taskManager = TaskManager.shared
-    
     var body: some View {
         VStack{
             // Sign In
@@ -57,15 +54,15 @@ struct Login: View {
                 messageAlert = "Verify that the data is not empty and try again."
                 
                 if !user.email.isEmpty && !user.password.isEmpty{
-                    if taskManager.checkUserCreated(user: user){
+                    if TaskManager.shared.checkUserCreated(user: user){
+                        TaskManager.shared.saveAttempt(user: user, success: true)
                         messageAlert = "Successful validation, congratulations."
+                        UIApplication.shared.endEditing()
                         user.email = ""
                         user.password = ""
-                        UIApplication.shared.endEditing()
-                        taskManager.saveAttempt(user: user, success: true)
                     } else {
                         messageAlert = "Validation failed, user not found. Try again."
-                        taskManager.saveAttempt(user: user, success: false)
+                        TaskManager.shared.saveAttempt(user: user, success: false)
                     }
                 }
                 showingAlert = true
@@ -95,7 +92,7 @@ struct Login: View {
             })
                 .clipShape(Capsule())
                 .frame(maxWidth: .infinity, alignment: .bottom)
-                .padding(.top, 100.0)
+                .padding(.top, 120.0)
             
                 .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
         }
