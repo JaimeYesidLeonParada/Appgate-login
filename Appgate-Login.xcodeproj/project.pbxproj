@@ -10,6 +10,8 @@
 		1C3EE96526CAA83A0030C463 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96426CAA83A0030C463 /* QueryService.swift */; };
 		1C3EE96726CAABE70030C463 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96626CAABE70030C463 /* Location.swift */; };
 		1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96826CAC10E0030C463 /* Date+Helper.swift */; };
+		1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96A26CAC9620030C463 /* Coordinate.swift */; };
+		1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96D26CACA780030C463 /* LocationService.swift */; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -58,6 +60,8 @@
 		1C3EE96426CAA83A0030C463 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		1C3EE96626CAABE70030C463 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1C3EE96826CAC10E0030C463 /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
+		1C3EE96A26CAC9620030C463 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		1C3EE96D26CACA780030C463 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		1C3EE96C26CACA4E0030C463 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				1C3EE96D26CACA780030C463 /* LocationService.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		1C4C258726C73CD3009BABD8 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C3EE96C26CACA4E0030C463 /* Location */,
 				1C3EE96326CAA8190030C463 /* Networking */,
 				1C4C25E326C9F0E3009BABD8 /* Managers */,
 				1C4C25D126C9AF35009BABD8 /* KeyChainService */,
@@ -208,6 +221,7 @@
 				1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */,
 				1C4C25E626C9F1F6009BABD8 /* User.swift */,
 				1C3EE96626CAABE70030C463 /* Location.swift */,
+				1C3EE96A26CAC9620030C463 /* Coordinate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +378,7 @@
 				1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
 				1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
+				1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */,
 				1C3EE96526CAA83A0030C463 /* QueryService.swift in Sources */,
 				1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */,
 				1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */,
@@ -375,6 +390,7 @@
 				1C4C25E726C9F1F6009BABD8 /* User.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
 				1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */,
+				1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */,
 				1C4C25D326C9AF64009BABD8 /* KeyChainStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

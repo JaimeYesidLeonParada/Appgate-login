@@ -14,7 +14,9 @@ struct Constants {
 
 class TaskManager {
     static let shared = TaskManager()
-    let queryService = QueryService()
+    
+    private let queryService = QueryService()
+    private let locationService = LocationService()
     
     var keyChainStore: KeyChainStore!
     
@@ -85,9 +87,6 @@ class TaskManager {
     }
     
     func getTime(completion: @escaping (String) -> Void) {
-        let latitude = 4.7110
-        let longitude = -74.0721
-        
-        queryService.getTime(latitude: latitude, longitude: longitude, completion: completion)
+        queryService.getTime(coordinate: locationService.coordinate, completion: completion)
     }
 }
