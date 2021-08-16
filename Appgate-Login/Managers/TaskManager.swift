@@ -14,6 +14,7 @@ struct Constants {
 
 class TaskManager {
     static let shared = TaskManager()
+    let queryService = QueryService()
     
     var keyChainStore: KeyChainStore!
     
@@ -46,24 +47,26 @@ class TaskManager {
     }
     
     func saveAttempt(user: User, success: Bool) {
-        do {
-            if let attempts = try keyChainStore.getData(for: Constants.keyChainStoreKeyAttempts) {
-                if var usersAttempts = try? JSONDecoder().decode([UserAttempt].self, from: attempts) {
-                    let attempt = UserAttempt(success: success, time: readCurrentTime(), user: user)
-                    usersAttempts.append(attempt)
-                    
-                    if let encoded = try? JSONEncoder().encode(usersAttempts) {
-                        try keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
+        getTime { [weak self] time in
+            do {
+                if let attempts = try self?.keyChainStore.getData(for: Constants.keyChainStoreKeyAttempts) {
+                    if var usersAttempts = try? JSONDecoder().decode([UserAttempt].self, from: attempts) {
+                        let attempt = UserAttempt(success: success, time: time, user: user)
+                        usersAttempts.append(attempt)
+                        
+                        if let encoded = try? JSONEncoder().encode(usersAttempts) {
+                            try self?.keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
+                        }
+                    }
+                } else {
+                    let attempt = UserAttempt(success: success, time: time, user: user)
+                    if let encoded = try? JSONEncoder().encode([attempt]) {
+                        try self?.keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
                     }
                 }
-            } else {
-                let attempt = UserAttempt(success: success, time: readCurrentTime(), user: user)
-                if let encoded = try? JSONEncoder().encode([attempt]) {
-                    try keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
-                }
+            } catch (let e) {
+                print(e.localizedDescription)
             }
-        } catch (let e) {
-            print(e.localizedDescription)
         }
     }
     
@@ -81,11 +84,10 @@ class TaskManager {
         return []
     }
     
-    func readCurrentTime() -> String {
-        let timestamp = DateFormatter.localizedString(from: Date(),
-                                                      dateStyle: .short,
-                                                      timeStyle: .short)
+    func getTime(completion: @escaping (String) -> Void) {
+        let latitude = 4.7110
+        let longitude = -74.0721
         
-        return timestamp
+        queryService.getTime(latitude: latitude, longitude: longitude, completion: completion)
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C3EE96526CAA83A0030C463 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96426CAA83A0030C463 /* QueryService.swift */; };
+		1C3EE96726CAABE70030C463 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96626CAABE70030C463 /* Location.swift */; };
+		1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96826CAC10E0030C463 /* Date+Helper.swift */; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -52,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C3EE96426CAA83A0030C463 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		1C3EE96626CAABE70030C463 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		1C3EE96826CAC10E0030C463 /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -103,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C3EE96326CAA8190030C463 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1C3EE96426CAA83A0030C463 /* QueryService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		1C4C258726C73CD3009BABD8 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +140,7 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C3EE96326CAA8190030C463 /* Networking */,
 				1C4C25E326C9F0E3009BABD8 /* Managers */,
 				1C4C25D126C9AF35009BABD8 /* KeyChainService */,
 				1C4C25D026C9AA8B009BABD8 /* Info.plist */,
@@ -182,6 +197,7 @@
 			children = (
 				1C4C25C426C96C2D009BABD8 /* String+Helper.swift */,
 				1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */,
+				1C3EE96826CAC10E0030C463 /* Date+Helper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 			children = (
 				1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */,
 				1C4C25E626C9F1F6009BABD8 /* User.swift */,
+				1C3EE96626CAABE70030C463 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,10 +364,13 @@
 				1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
 				1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
+				1C3EE96526CAA83A0030C463 /* QueryService.swift in Sources */,
+				1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */,
 				1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */,
 				1C4C259626C73CD3009BABD8 /* Home.swift in Sources */,
 				1C4C25D726C9B017009BABD8 /* KeyChainStoreError.swift in Sources */,
 				1C4C25C926C98255009BABD8 /* Attempt.swift in Sources */,
+				1C3EE96726CAABE70030C463 /* Location.swift in Sources */,
 				1C4C25C526C96C2D009BABD8 /* String+Helper.swift in Sources */,
 				1C4C25E726C9F1F6009BABD8 /* User.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
