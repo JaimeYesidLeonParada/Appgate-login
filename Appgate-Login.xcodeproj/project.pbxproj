@@ -21,6 +21,14 @@
 		1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */; };
 		1C4C25CE26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25CD26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift */; };
 		1C4C25CF26C9A7A0009BABD8 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C426C96C2D009BABD8 /* String+Helper.swift */; };
+		1C4C25D326C9AF64009BABD8 /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */; };
+		1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */; };
+		1C4C25D726C9B017009BABD8 /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */; };
+		1C4C25DD26C9B3D0009BABD8 /* KeyChainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25DC26C9B3D0009BABD8 /* KeyChainStoreTests.swift */; };
+		1C4C25DE26C9B5EA009BABD8 /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */; };
+		1C4C25DF26C9B5FB009BABD8 /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */; };
+		1C4C25E026C9B5FB009BABD8 /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */; };
+		1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E426C9F0F6009BABD8 /* TaskManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,11 @@
 		1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAttempt.swift; sourceTree = "<group>"; };
 		1C4C25CD26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginTests_String_Helper.swift; sourceTree = "<group>"; };
 		1C4C25D026C9AA8B009BABD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStore.swift; sourceTree = "<group>"; };
+		1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreQueryable.swift; sourceTree = "<group>"; };
+		1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreError.swift; sourceTree = "<group>"; };
+		1C4C25DC26C9B3D0009BABD8 /* KeyChainStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreTests.swift; sourceTree = "<group>"; };
+		1C4C25E426C9F0F6009BABD8 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +121,8 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C4C25E326C9F0E3009BABD8 /* Managers */,
+				1C4C25D126C9AF35009BABD8 /* KeyChainService */,
 				1C4C25D026C9AA8B009BABD8 /* Info.plist */,
 				1C4C25CA26C9A162009BABD8 /* Models */,
 				1C4C25C326C96B44009BABD8 /* Extension */,
@@ -132,6 +147,7 @@
 			children = (
 				1C4C25A426C73CDA009BABD8 /* Appgate_LoginTests.swift */,
 				1C4C25CD26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift */,
+				1C4C25DC26C9B3D0009BABD8 /* KeyChainStoreTests.swift */,
 			);
 			path = "Appgate-LoginTests";
 			sourceTree = "<group>";
@@ -170,6 +186,24 @@
 				1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1C4C25D126C9AF35009BABD8 /* KeyChainService */ = {
+			isa = PBXGroup;
+			children = (
+				1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */,
+				1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */,
+				1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */,
+			);
+			path = KeyChainService;
+			sourceTree = "<group>";
+		};
+		1C4C25E326C9F0E3009BABD8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1C4C25E426C9F0F6009BABD8 /* TaskManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,11 +338,15 @@
 			files = (
 				1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
+				1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
+				1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */,
 				1C4C259626C73CD3009BABD8 /* Home.swift in Sources */,
+				1C4C25D726C9B017009BABD8 /* KeyChainStoreError.swift in Sources */,
 				1C4C25C926C98255009BABD8 /* Attempt.swift in Sources */,
 				1C4C25C526C96C2D009BABD8 /* String+Helper.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
 				1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */,
+				1C4C25D326C9AF64009BABD8 /* KeyChainStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,9 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4C25DE26C9B5EA009BABD8 /* KeyChainStore.swift in Sources */,
 				1C4C25A526C73CDA009BABD8 /* Appgate_LoginTests.swift in Sources */,
+				1C4C25DF26C9B5FB009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
 				1C4C25CF26C9A7A0009BABD8 /* String+Helper.swift in Sources */,
+				1C4C25E026C9B5FB009BABD8 /* KeyChainStoreError.swift in Sources */,
 				1C4C25CE26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift in Sources */,
+				1C4C25DD26C9B3D0009BABD8 /* KeyChainStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Appgate-Login/Preview Content\"";
+				DEVELOPMENT_TEAM = 23TD9LPNL3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Appgate-Login/Info.plist";
@@ -501,6 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Appgate-Login/Preview Content\"";
+				DEVELOPMENT_TEAM = 23TD9LPNL3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Appgate-Login/Info.plist";

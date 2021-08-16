@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserAttempt: Identifiable {
+struct UserAttempt: Codable, Identifiable {
     var id = UUID().uuidString
     var success: Bool
     var time: String
