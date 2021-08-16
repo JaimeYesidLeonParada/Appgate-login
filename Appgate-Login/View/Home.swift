@@ -32,11 +32,11 @@ struct Home: View {
                         
                         Circle()
                             .fill(Color(.black))
-                            .offset(x: -getRect().width / 2.0, y: -height / 1.5)
+                            .offset(x: -getRect().width / 2.0, y: -height / 1.4)
                         
                         Circle()
                             .fill(Color(.blue))
-                            .offset(y: -height / 1.3)
+                            .offset(y: -height / 1.25)
                             .rotationEffect(.init(degrees: -5.0))
                     }
                 )
@@ -53,8 +53,7 @@ struct Home: View {
                         .transition(.move(edge: .trailing))
                 }
             }
-            
-            .padding(.top, -maxCircleHeight / (getRect().height < 750 ? 1.5 : 1.6))
+            .padding(.top, -maxCircleHeight / (getRect().height < 750 ? 1.25 : 1.6))
             .frame(maxHeight: .infinity, alignment: .top)
         }
         .overlay(
@@ -73,7 +72,7 @@ struct Home: View {
                         .foregroundColor(Color.blue)
                 })
             }
-                .padding(.bottom, getSafeArea().bottom == 0 ? 15 : 0)
+                .padding(.bottom, getSafeArea().bottom == 0 ? 15.0 : 0)
             
             , alignment: .bottom
         )

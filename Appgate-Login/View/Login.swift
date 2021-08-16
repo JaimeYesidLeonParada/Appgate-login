@@ -12,6 +12,8 @@ struct Login: View {
     @State var password = ""
     @State var isPresentedAttempt = false
     
+    private var taskManager = TaskManager.shared
+    
     var body: some View {
         VStack{
             // Sign In
@@ -48,8 +50,20 @@ struct Login: View {
                 
             }).padding(.top, 20.0)
             
-            // Forget password
-            Button(action: {}, label: {
+            // Validate account
+            Button(action: {
+                if !email.isEmpty && !password.isEmpty{
+                    let user = User(email: email, password: password)
+                    if taskManager.checkUserCreated(user: user){
+                        print("Si seññooorrrrr")
+                        email = ""
+                        password = ""
+                        UIApplication.shared.endEditing()
+                    } else {
+                        print("Usuario no creado")
+                    }
+                }
+            }, label: {
                 Text("Validate")
                     .padding()
                     .background(Color.gray)
@@ -61,8 +75,7 @@ struct Login: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.top, 10.0)
                 
-            
-            // Next Button
+            // Show Attemps
             Button(action: {
                 isPresentedAttempt.toggle()
             }, label: {

@@ -11,15 +11,15 @@ struct Attempt: View {
     @Environment(\.presentationMode) var presentationMode
     
     //Mock Data
-    let modelData : [UserAttempt] = [
-        UserAttempt(success: true, time: "11:32 pm", email: "james.rodriguez@gmail.com"),
-        UserAttempt(success: false, time: "11:33 pm", email: "pedro.escamoso@gmail.com"),
-        UserAttempt(success: true, time: "11:34 pm", email: "lionel.messi@gmail.com")
+    let data : [UserAttempt] = [
+        UserAttempt(success: true, time: "11:28", user: User(email: "james.rodriguez@gmail.com", password: "12345")),
+        UserAttempt(success: false, time: "11:33 pm", user: User(email: "pedro.escamoso@gmail.com", password: "12345")),
+        UserAttempt(success: false, time: "11:34 pm", user: User(email: "lionel.messi@gmail.com", password: "12345"))
     ]
     
     var body: some View {
         NavigationView {
-            List(modelData) { attempt in
+            List(data) { attempt in
                 HStack {
                     Image(systemName: attempt.success ? "hand.thumbsup" : "hand.thumbsdown.fill" )
                         .frame(width: 20.0, height: 15.0, alignment: .leading)
@@ -27,7 +27,7 @@ struct Attempt: View {
                         .lineLimit(1)
                         .font(.system(size: 14.0, weight: .semibold))
                         .foregroundColor(Color.black)
-                    Text(attempt.email)
+                    Text(attempt.user.email)
                         .lineLimit(1)
                         .font(.system(size: 14.0, weight: .semibold))
                         .foregroundColor(Color.gray)

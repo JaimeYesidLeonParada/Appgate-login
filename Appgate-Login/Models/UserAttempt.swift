@@ -11,5 +11,5 @@ struct UserAttempt: Codable, Identifiable {
     var id = UUID().uuidString
     var success: Bool
     var time: String
-    var email: String
+    var user: User
 }

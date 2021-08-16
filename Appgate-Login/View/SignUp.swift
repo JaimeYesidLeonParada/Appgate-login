@@ -14,7 +14,8 @@ struct SignUp: View {
     @State var emailAlert = ""
     @State var passwordAlert = ""
     @State var confirmPasswordAlert = ""
-    @State var isPresentedAttempt = false
+        
+    private var taskManager = TaskManager.shared
     
     var body: some View {
         VStack{
@@ -27,14 +28,15 @@ struct SignUp: View {
                 .frame(maxWidth: .infinity,  alignment: .leading)
             
             // User name
-            VStack(alignment: .leading, spacing: 8.0, content: {
+            VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
                     Text("User Name")
                         .fontWeight(.bold)
                         .foregroundColor(.gray)
                     
                     Text(emailAlert)
-                        .font(.system(size: 12.0, weight: .bold))
+                        .font(.system(size: 10.0, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.red)
                         .padding()
                 }
@@ -42,19 +44,17 @@ struct SignUp: View {
                 TextField("Email", text: $email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
-                    .padding(.top, 5.0)
                     .onChange(of: email){ newValue in
                         emailAlert = ""
                         
-                        if !newValue.isValidEmail{
+                        if !newValue.isValidEmail && !newValue.isEmpty {
                             emailAlert = "Insert a valid email"
                         }
                     }
-                
-            }).padding(.top, 25.0)
+            }).padding(.top, 5.0)
             
             // Password
-            VStack(alignment: .leading, spacing: 8.0, content: {
+            VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
                     Text("Password")
                         .fontWeight(.bold)
@@ -62,33 +62,33 @@ struct SignUp: View {
                     
                     Text(passwordAlert)
                         .foregroundColor(.red)
-                        .font(.system(size: 12.0, weight: .bold))
+                        .font(.system(size: 10.0, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                 }
                 
                 SecureField("Password", text: $password)
                     .font(.system(size: 20.0, weight: .semibold))
                     .foregroundColor(Color.black)
-                    .padding(.top, 5.0)
                     .onChange(of: password) { newValue in
                         passwordAlert = ""
                         
-                        if !newValue.isValidPassword {
+                        if !newValue.isValidPassword && !newValue.isEmpty {
                             passwordAlert = "At least 8 characters, uppercase, lowercase,numbers and special characters"
                         }
                     }
-                
-            }).padding(.top, 20.0)
+            }).padding(.top, 5.0)
             
             // Confirm Password
-            VStack(alignment: .leading, spacing: 8.0, content: {
+            VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
                     Text("Confirm Password")
                         .fontWeight(.bold)
                         .foregroundColor(.gray)
                     
                     Text(confirmPasswordAlert)
-                        .font(.system(size: 16.0, weight: .bold))
+                        .font(.system(size: 10.0, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.red)
                         .padding()
                 }
@@ -98,20 +98,32 @@ struct SignUp: View {
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
                     .onChange(of: confirmPassword) { newValue in
-                        if confirmPassword == password{
+                        
+                        if newValue.isEmpty { return }
+                        
+                        if confirmPassword == password {
                             confirmPasswordAlert = "✅"
                         } else {
                             confirmPasswordAlert = "Need to match"
                         }
                     }
-                
-            }).padding(.top, 20.0)
+            }).padding(.top, 5.0)
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top, 10.0)
             
             // Next Button
             Button(action: {
-                isPresentedAttempt.toggle()
+                if email.isValidEmail && password.isValidPassword && password == confirmPassword {
+                    let user = User(email: email, password: password)
+                    taskManager.createUser(user: user)
+                    email = ""
+                    password = ""
+                    confirmPassword = ""
+                    emailAlert = ""
+                    passwordAlert = ""
+                    confirmPasswordAlert = ""
+                    
+                    UIApplication.shared.endEditing()
+                }
             }, label: {
                 Text("Create Account")
                     .padding()
@@ -121,9 +133,6 @@ struct SignUp: View {
             })
                 .clipShape(Capsule())
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top, 20.0)
-                .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
-
         }
         .padding()
     }

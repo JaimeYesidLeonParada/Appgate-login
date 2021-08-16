@@ -10,7 +10,7 @@ import Foundation
 class TaskManager {
     static let shared = TaskManager()
     
-    var secureStoreWithGenericPwd: KeyChainStore!
+    var keyChainStore: KeyChainStore!
     
     init() {
       loadTasks()
@@ -18,6 +18,25 @@ class TaskManager {
     
     func loadTasks() {
         let genericPwdQueryable = GenericPasswordQueryable(service: "someService")
-        secureStoreWithGenericPwd = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
+        keyChainStore = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
+    }
+    
+    func createUser(user: User) {
+        do {
+            try keyChainStore.setValue(user.password, for: user.email)
+        } catch (let e) {
+            print(e.localizedDescription)
+        }
+    }
+    
+    func checkUserCreated(user: User) -> Bool {
+        do {
+            let password = try keyChainStore.getValue(for: user.email)
+            return password == user.password
+        } catch (let e) {
+            print(e.localizedDescription)
+        }
+        
+        return false
     }
 }
