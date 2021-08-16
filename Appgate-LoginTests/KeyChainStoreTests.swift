@@ -6,45 +6,38 @@
 //
 
 import XCTest
+@testable import Appgate_Login
 
 //@testable import KeyChainStore
 
 class KeyChainStoreTests: XCTestCase {
     
-    var secureStoreWithGenericPwd: KeyChainStore!
+    var keychainStore: KeyChainStore!
     
     override func setUpWithError() throws {
         let genericPwdQueryable = GenericPasswordQueryable(service: "someService")
-        secureStoreWithGenericPwd = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
+        keychainStore = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
     }
     
     override func tearDownWithError() throws {
-        try? secureStoreWithGenericPwd.removeAllValues()
+        try? keychainStore.removeAllValues()
     }
     
     func testSaveGenericPassword() {
         do {
-            try secureStoreWithGenericPwd.setValue("pwd_1234", for: "genericPassword")
+            try keychainStore.setValue("pwd_1234", for: "genericPassword")
         } catch (let e) {
             XCTFail("Saving generic password failed with \(e.localizedDescription).")
         }
     }
     
     func testSaveGenericData() {
-        
-        struct Person: Codable {
-            var name: String
-        }
-
-        let taylor = Person(name: "Taylor Swift")
-        
+        let user = User(email: "lionel.messi@gmail.com", password: "barcelona")
+               
         do {
             let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(taylor) {
-                let defaults = UserDefaults.standard
-                defaults.set(encoded, forKey: "SavedPerson")
-                
-                try secureStoreWithGenericPwd.setData(encoded, for: "SavedPerson")
+            if let encoded = try? encoder.encode(user) {
+                try keychainStore.setData(encoded, for: "SavedPerson")
             }            
         } catch (let e) {
             XCTFail("Saving generic password failed with \(e.localizedDescription).")
@@ -52,25 +45,19 @@ class KeyChainStoreTests: XCTestCase {
     }
     
     func testReadGenericData() {
-        struct Person: Codable {
-            var name: String
-        }
-
-        let taylor = Person(name: "Taylor Swift")
+        let user = User(email: "lionel.messi@gmail.com", password: "barcelona")
         
         do {
             let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(taylor) {
-                let defaults = UserDefaults.standard
-                defaults.set(encoded, forKey: "SavedPerson")
-                
-                try secureStoreWithGenericPwd.setData(encoded, for: "SavedPerson")
+            if let encoded = try? encoder.encode(user) {
+                try keychainStore.setData(encoded, for: "SavedPerson")
             }
             
-            if let savedPerson = try secureStoreWithGenericPwd.getData(for: "SavedPerson") {
+            if let savedPerson = try keychainStore.getData(for: "SavedPerson") {
                 let decoder = JSONDecoder()
-                if let loadedPerson = try? decoder.decode(Person.self, from: savedPerson) {
-                    XCTAssertEqual("Taylor Swift", loadedPerson.name)
+                if let loadedUser = try? decoder.decode(User.self, from: savedPerson) {
+                    XCTAssertEqual(user.email, loadedUser.email)
+                    XCTAssertEqual(user.password, loadedUser.password)
                 }
             } else {
                 XCTFail()
@@ -83,8 +70,8 @@ class KeyChainStoreTests: XCTestCase {
     
     func testReadGenericPassword() {
         do {
-            try secureStoreWithGenericPwd.setValue("pwd_1234", for: "genericPassword")
-            let password = try secureStoreWithGenericPwd.getValue(for: "genericPassword")
+            try keychainStore.setValue("pwd_1234", for: "genericPassword")
+            let password = try keychainStore.getValue(for: "genericPassword")
             XCTAssertEqual("pwd_1234", password)
         } catch (let e) {
             XCTFail("Reading generic password failed with \(e.localizedDescription).")
@@ -93,10 +80,10 @@ class KeyChainStoreTests: XCTestCase {
     
     func testUpdateGenericPassword() {
         do {
-            try secureStoreWithGenericPwd.setValue("pwd_1234", for: "genericPassword")
-            try secureStoreWithGenericPwd.setValue("pwd_1235", for: "genericPassword")
+            try keychainStore.setValue("pwd_1234", for: "genericPassword")
+            try keychainStore.setValue("pwd_1235", for: "genericPassword")
             
-            let password = try secureStoreWithGenericPwd.getValue(for: "genericPassword")
+            let password = try keychainStore.getValue(for: "genericPassword")
             XCTAssertEqual("pwd_1235", password)
         } catch (let e) {
             XCTFail("Updating generic password failed with \(e.localizedDescription).")
@@ -105,9 +92,9 @@ class KeyChainStoreTests: XCTestCase {
     
     func testRemoveGenericPassword() {
         do {
-            try secureStoreWithGenericPwd.setValue("pwd_1234", for: "genericPassword")
-            try secureStoreWithGenericPwd.removeValue(for: "genericPassword")
-            XCTAssertNil(try secureStoreWithGenericPwd.getValue(for: "genericPassword"))
+            try keychainStore.setValue("pwd_1234", for: "genericPassword")
+            try keychainStore.removeValue(for: "genericPassword")
+            XCTAssertNil(try keychainStore.getValue(for: "genericPassword"))
         } catch (let e) {
             XCTFail("Saving generic password failed with \(e.localizedDescription).")
         }
@@ -115,12 +102,12 @@ class KeyChainStoreTests: XCTestCase {
     
     func testRemoveAllGenericPasswords() {
         do {
-            try secureStoreWithGenericPwd.setValue("pwd_1234", for: "genericPassword")
-            try secureStoreWithGenericPwd.setValue("pwd_1235", for: "genericPassword2")
-            try secureStoreWithGenericPwd.removeAllValues()
+            try keychainStore.setValue("pwd_1234", for: "genericPassword")
+            try keychainStore.setValue("pwd_1235", for: "genericPassword2")
+            try keychainStore.removeAllValues()
             
-            XCTAssertNil(try secureStoreWithGenericPwd.getValue(for: "genericPassword"))
-            XCTAssertNil(try secureStoreWithGenericPwd.getValue(for: "genericPassword2"))
+            XCTAssertNil(try keychainStore.getValue(for: "genericPassword"))
+            XCTAssertNil(try keychainStore.getValue(for: "genericPassword2"))
         } catch (let e) {
             XCTFail("Removing generic passwords failed with \(e.localizedDescription).")
         }

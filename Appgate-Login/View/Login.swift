@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Login: View {
-    @State var email = ""
-    @State var password = ""
+    @State var user = User(email: "", password: "")
+    @State var showingAlert = false
+    @State var messageAlert = ""
     @State var isPresentedAttempt = false
+    
     
     private var taskManager = TaskManager.shared
     
@@ -30,7 +32,7 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
                 
-                TextField("Email", text: $email)
+                TextField("Email", text: $user.email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
@@ -43,7 +45,7 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
                 
-                SecureField("Password", text: $password)
+                SecureField("Password", text: $user.password)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
                     .padding(.top, 5.0)
@@ -52,28 +54,34 @@ struct Login: View {
             
             // Validate account
             Button(action: {
-                if !email.isEmpty && !password.isEmpty{
-                    let user = User(email: email, password: password)
+                messageAlert = "Verify that the data is not empty and try again."
+                
+                if !user.email.isEmpty && !user.password.isEmpty{
                     if taskManager.checkUserCreated(user: user){
-                        print("Si seññooorrrrr")
-                        email = ""
-                        password = ""
+                        messageAlert = "Successful validation, congratulations."
+                        user.email = ""
+                        user.password = ""
                         UIApplication.shared.endEditing()
+                        taskManager.saveAttempt(user: user, success: true)
                     } else {
-                        print("Usuario no creado")
+                        messageAlert = "Validation failed, user not found. Try again."
+                        taskManager.saveAttempt(user: user, success: false)
                     }
                 }
+                showingAlert = true
             }, label: {
                 Text("Validate")
                     .padding()
                     .background(Color.gray)
                     .foregroundColor(.white)
                     .font(.system(size: 20.0, weight: .semibold))
-                
             })
                 .clipShape(Capsule())
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.top, 10.0)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Validation"), message: Text(messageAlert), dismissButton: .default(Text("Close")))
+                }
                 
             // Show Attemps
             Button(action: {
