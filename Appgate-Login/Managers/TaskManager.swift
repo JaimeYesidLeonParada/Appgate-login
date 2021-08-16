@@ -25,7 +25,7 @@ class TaskManager {
     }
     
     func loadTasks() {
-        let genericPwdQueryable = GenericPasswordQueryable(service: Constants.keyChainStoreService)
+        let genericPwdQueryable = keyChainQueryable(service: Constants.keyChainStoreService)
         keyChainStore = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
     }
     

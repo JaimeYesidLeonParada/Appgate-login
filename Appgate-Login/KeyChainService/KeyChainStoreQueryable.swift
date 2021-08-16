@@ -11,7 +11,7 @@ public protocol KeyChainStoreQueryable {
   var query: [String: Any] { get }
 }
 
-public struct GenericPasswordQueryable {
+public struct keyChainQueryable {
     let service: String
     let accessGroup: String?
     
@@ -21,7 +21,7 @@ public struct GenericPasswordQueryable {
     }
 }
 
-extension GenericPasswordQueryable: KeyChainStoreQueryable {
+extension keyChainQueryable: KeyChainStoreQueryable {
     public var query: [String: Any] {
         var query: [String: Any] = [:]
         query[String(kSecClass)] = kSecClassGenericPassword
