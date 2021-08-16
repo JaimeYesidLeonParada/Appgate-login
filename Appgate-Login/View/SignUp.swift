@@ -43,6 +43,7 @@ struct SignUp: View {
                 TextField("Email", text: $user.email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
+                    .textContentType(.emailAddress)
                     .onChange(of: user.email){ newValue in
                         emailAlert = ""
                         
@@ -50,7 +51,7 @@ struct SignUp: View {
                             emailAlert = "Insert a valid email"
                         }
                     }
-            }).padding(.top, 5.0)
+            }).padding(.top, 20.0)
             
             // Password
             VStack(alignment: .leading, spacing: 4.0, content: {

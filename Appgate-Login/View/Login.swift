@@ -32,6 +32,7 @@ struct Login: View {
                 TextField("Email", text: $user.email)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(Color.black)
+                    .textContentType(.emailAddress)
                     .padding(.top, 5.0)
                 
             }).padding(.top, 25.0)
@@ -74,7 +75,7 @@ struct Login: View {
                     .font(.system(size: 20.0, weight: .semibold))
             })
                 .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 10.0)
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Validation"), message: Text(messageAlert), dismissButton: .default(Text("Close")))
@@ -91,8 +92,8 @@ struct Login: View {
                     .font(.system(size: 20.0, weight: .bold))
             })
                 .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .bottom)
-                .padding(.top, 120.0)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 10.0)
             
                 .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
         }

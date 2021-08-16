@@ -28,15 +28,15 @@ struct Home: View {
                     ZStack {
                         Circle()
                             .fill(Color(.black))
-                            .offset(x: getRect().width / 2.0, y: -height / 1.3)
+                            .offset(x: getRect().width / 2.0, y: -height / 1.1)
                         
                         Circle()
                             .fill(Color(.black))
-                            .offset(x: -getRect().width / 2.0, y: -height / 1.4)
+                            .offset(x: -getRect().width / 2.0, y: -height / 1.2)
                         
                         Circle()
-                            .fill(Color(.blue))
-                            .offset(y: -height / 1.25)
+                            .fill(Color.blue)
+                            .offset(y: -height / 1.2)
                             .rotationEffect(.init(degrees: -5.0))
                     }
                 )
@@ -53,7 +53,7 @@ struct Home: View {
                         .transition(.move(edge: .trailing))
                 }
             }
-            .padding(.top, -maxCircleHeight / (getRect().height < 750 ? 1.25 : 1.6))
+            .padding(.top, -maxCircleHeight / (getRect().height < 750 ? 1.10 : 1.6))
             .frame(maxHeight: .infinity, alignment: .top)
         }
         .overlay(
@@ -101,15 +101,5 @@ struct Home: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Home()
-    }
-}
-
-extension View {
-    func getRect() -> CGRect {
-        return UIScreen.main.bounds
-    }
-    
-    func getSafeArea() -> UIEdgeInsets {
-        return UIApplication.shared.windows.first?.safeAreaInsets ?? UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0 )
     }
 }

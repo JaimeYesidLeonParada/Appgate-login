@@ -25,6 +25,7 @@ struct Attempt: View {
                 HStack {
                     Image(systemName: attempt.success ? "hand.thumbsup" : "hand.thumbsdown.fill" )
                         .frame(width: 20.0, height: 15.0, alignment: .leading)
+                        .foregroundColor(attempt.success ? Color.green : Color.red)
                     Text(attempt.time)
                         .lineLimit(1)
                         .font(.system(size: 14.0, weight: .semibold))

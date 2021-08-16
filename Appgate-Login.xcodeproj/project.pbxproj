@@ -12,6 +12,7 @@
 		1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96826CAC10E0030C463 /* Date+Helper.swift */; };
 		1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96A26CAC9620030C463 /* Coordinate.swift */; };
 		1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96D26CACA780030C463 /* LocationService.swift */; };
+		1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -62,6 +63,7 @@
 		1C3EE96826CAC10E0030C463 /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		1C3EE96A26CAC9620030C463 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1C3EE96D26CACA780030C463 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				1C4C25C426C96C2D009BABD8 /* String+Helper.swift */,
 				1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */,
 				1C3EE96826CAC10E0030C463 /* Date+Helper.swift */,
+				1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
 				1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
+				1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */,
 				1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */,
 				1C3EE96526CAA83A0030C463 /* QueryService.swift in Sources */,
 				1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */,
