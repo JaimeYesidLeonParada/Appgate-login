@@ -15,39 +15,17 @@ struct Login: View {
     
     var body: some View {
         VStack{
-            // Sign In
-            Text("Sign In")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black)
-                .kerning(2.0)
-                .frame(maxWidth: .infinity,  alignment: .leading)
+            Text("Sign In").headerStyle()
             
-            // User name
             VStack(alignment: .leading, spacing: 8.0, content: {
-                Text("User Name")
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
-                
-                TextField("Email", text: $user.email)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(Color.black)
-                    .textContentType(.emailAddress)
-                    .padding(.top, 5.0)
-                
+                Text("User Name").labelStyle()
+                TextField("Email", text: $user.email).emailStyle()
             }).padding(.top, 25.0)
             
             // Password
             VStack(alignment: .leading, spacing: 8.0, content: {
-                Text("Password")
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
-                
-                SecureField("Password", text: $user.password)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(Color.black)
-                    .padding(.top, 5.0)
-                
+                Text("Password").labelStyle()
+                SecureField("Password", text: $user.password).passwordStyle()
             }).padding(.top, 20.0)
             
             // Validate account
@@ -55,29 +33,13 @@ struct Login: View {
                 messageAlert = "Verify that the data is not empty and try again."
                 
                 if !user.email.isEmpty && !user.password.isEmpty{
-                    user.email = user.email.lowercased()
-                    if TaskManager.shared.checkUserCreated(user: user){
-                        TaskManager.shared.saveAttempt(user: user, success: true)
-                        messageAlert = "Successful validation, congratulations."
-                        UIApplication.shared.endEditing()
-                        user.email = ""
-                        user.password = ""
-                    } else {
-                        messageAlert = "Validation failed, user not found. Try again."
-                        TaskManager.shared.saveAttempt(user: user, success: false)
-                    }
+                    saveUser()
                 }
                 showingAlert = true
             }, label: {
-                Text("Validate")
-                    .padding()
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20.0, weight: .semibold))
+                Text("Validate").primaryButton()
             })
-                .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10.0)
+                .primaryStyle()
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Validation"), message: Text(messageAlert), dismissButton: .default(Text("Close")))
                 }
@@ -86,19 +48,26 @@ struct Login: View {
             Button(action: {
                 isPresentedAttempt.toggle()
             }, label: {
-                Text("Show Attemps")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20.0, weight: .bold))
+                Text("Show Attemps").secondaryButton()
             })
-                .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10.0)
-            
+                .primaryStyle()
                 .fullScreenCover(isPresented: $isPresentedAttempt, content: Attempt.init)
         }
         .padding()
+    }
+    
+    func saveUser() {
+        user.email = user.email.lowercased()
+        if TaskManager.shared.checkUserCreated(user: user){
+            TaskManager.shared.saveAttempt(user: user, success: true)
+            messageAlert = "Successful validation, congratulations."
+            UIApplication.shared.endEditing()
+            user.email = ""
+            user.password = ""
+        } else {
+            messageAlert = "Validation failed, user not found. Try again."
+            TaskManager.shared.saveAttempt(user: user, success: false)
+        }
     }
 }
 

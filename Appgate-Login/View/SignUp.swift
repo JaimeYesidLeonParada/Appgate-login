@@ -18,35 +18,17 @@ struct SignUp: View {
     
     var body: some View {
         VStack{
-            // Sign In
-            Text("Sign Up")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black)
-                .kerning(2.0)
-                .frame(maxWidth: .infinity,  alignment: .leading)
-            
-            // User name
+            Text("Sign Up").headerStyle()
             VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
-                    Text("User Name")
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                    
-                    Text(emailAlert)
-                        .font(.system(size: 14.0, weight: .bold))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.red)
-                        .padding()
+                    Text("User Name").labelStyle()
+                    Text(emailAlert).alertStyle()
                 }
                 
                 TextField("Email", text: $user.email)
-                    .font(.system(size: 20, weight: .light))
-                    .foregroundColor(Color.black)
-                    .textContentType(.emailAddress)
+                    .emailStyle()
                     .onChange(of: user.email){ newValue in
                         emailAlert = ""
-                        
                         if !newValue.isValidEmail && !newValue.isEmpty {
                             emailAlert = "Insert a valid email"
                         }
@@ -56,20 +38,12 @@ struct SignUp: View {
             // Password
             VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
-                    Text("Password")
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                    
-                    Text(passwordAlert)
-                        .foregroundColor(.red)
-                        .font(.system(size: 14.0, weight: .bold))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
+                    Text("Password").labelStyle()
+                    Text(passwordAlert).alertStyle()
                 }
                 
                 SecureField("Password", text: $user.password)
-                    .font(.system(size: 20.0, weight: .semibold))
-                    .foregroundColor(Color.black)
+                    .passwordStyle()
                     .onChange(of: user.password) { newValue in
                         passwordAlert = ""
                         
@@ -82,25 +56,14 @@ struct SignUp: View {
             // Confirm Password
             VStack(alignment: .leading, spacing: 4.0, content: {
                 HStack{
-                    Text("Confirm Password")
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                    
-                    Text(confirmPasswordAlert)
-                        .font(.system(size: 14.0, weight: .bold))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.red)
-                        .padding()
+                    Text("Confirm Password").labelStyle()
+                    Text(confirmPasswordAlert).alertStyle()
                 }
                 
                 SecureField("Password", text: $confirmPassword)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(Color.black)
-                    .padding(.top, 5.0)
+                    .passwordStyle()
                     .onChange(of: confirmPassword) { newValue in
-                        
                         if newValue.isEmpty { return }
-                        
                         if confirmPassword == user.password {
                             confirmPasswordAlert = "✅"
                         } else {
@@ -113,36 +76,34 @@ struct SignUp: View {
             // Next Button
             Button(action: {
                 messageAlert = "Verify that the data is not empty and try again."
-                
                 if user.email.isValidEmail && user.password.isValidPassword && user.password == confirmPassword {
-                    user.email = user.email.lowercased()
-                    TaskManager.shared.createUser(user: user)
-                    user.email = ""
-                    user.password = ""
-                    confirmPassword = ""
-                    emailAlert = ""
-                    passwordAlert = ""
-                    confirmPasswordAlert = ""
-                    
-                    UIApplication.shared.endEditing()
-                    
-                    messageAlert = "User created successfully, congratulations."
+                    createUser()
                 }
                 showingAlert = true
             }, label: {
-                Text("Create Account")
-                    .padding()
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20.0, weight: .semibold))
+                Text("Create Account").primaryButton()
             })
-                .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .primaryStyle()
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Validation"), message: Text(messageAlert), dismissButton: .default(Text("Close")))
                 }
         }
         .padding()
+    }
+    
+    func createUser(){
+        user.email = user.email.lowercased()
+        TaskManager.shared.createUser(user: user)
+        user.email = ""
+        user.password = ""
+        confirmPassword = ""
+        emailAlert = ""
+        passwordAlert = ""
+        confirmPasswordAlert = ""
+        
+        UIApplication.shared.endEditing()
+        
+        messageAlert = "User created successfully, congratulations."
     }
 }
 
