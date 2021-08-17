@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 class NetworkingManager {
     private struct Constants {
