@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C3EE96726CAABE70030C463 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96626CAABE70030C463 /* Location.swift */; };
 		1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96826CAC10E0030C463 /* Date+Helper.swift */; };
-		1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96A26CAC9620030C463 /* Coordinate.swift */; };
-		1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96D26CACA780030C463 /* LocationService.swift */; };
 		1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */; };
 		1C3EE99F26CB37CB0030C463 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3EE99E26CB37CB0030C463 /* Launch Screen.storyboard */; };
 		1C3EE9A126CB3E5C0030C463 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE9A026CB3E5C0030C463 /* NetworkingManager.swift */; };
@@ -23,6 +21,8 @@
 		1C3EE9E926CB60D20030C463 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EE9E426CB5F7F0030C463 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C3EEA0F26CB62DF0030C463 /* KeyChainService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */; };
 		1C3EEA1026CB62DF0030C463 /* KeyChainService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C3EEA3326CB65950030C463 /* LocationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA3226CB658A0030C463 /* LocationService.framework */; };
+		1C3EEA3426CB65950030C463 /* LocationService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA3226CB658A0030C463 /* LocationService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -59,6 +59,13 @@
 			remoteGlobalIDString = 1C3EE9F726CB62480030C463;
 			remoteInfo = KeyChainService;
 		};
+		1C3EEA3126CB658A0030C463 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C3EEA2D26CB658A0030C463 /* LocationService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C3EEA1D26CB651F0030C463;
+			remoteInfo = LocationService;
+		};
 		1C4C25A126C73CDA009BABD8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1C4C258826C73CD3009BABD8 /* Project object */;
@@ -82,6 +89,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1C3EEA3426CB65950030C463 /* LocationService.framework in Embed Frameworks */,
 				1C3EEA1026CB62DF0030C463 /* KeyChainService.framework in Embed Frameworks */,
 				1C3EE9E926CB60D20030C463 /* Networking.framework in Embed Frameworks */,
 			);
@@ -93,8 +101,6 @@
 /* Begin PBXFileReference section */
 		1C3EE96626CAABE70030C463 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1C3EE96826CAC10E0030C463 /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
-		1C3EE96A26CAC9620030C463 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
-		1C3EE96D26CACA780030C463 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 		1C3EE99E26CB37CB0030C463 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1C3EE9A026CB3E5C0030C463 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 		1C3EE9AB26CB51BC0030C463 /* SecureField+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureField+Styles.swift"; sourceTree = "<group>"; };
 		1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 		1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyChainService.xcodeproj; path = ../../KeyChainService/KeyChainService.xcodeproj; sourceTree = "<group>"; };
+		1C3EEA2D26CB658A0030C463 /* LocationService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocationService.xcodeproj; path = ../../LocationService/LocationService.xcodeproj; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -133,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3EEA3326CB65950030C463 /* LocationService.framework in Frameworks */,
 				1C3EEA0F26CB62DF0030C463 /* KeyChainService.framework in Frameworks */,
 				1C3EE9E826CB60D20030C463 /* Networking.framework in Frameworks */,
 			);
@@ -155,14 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C3EE96C26CACA4E0030C463 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				1C3EE96D26CACA780030C463 /* LocationService.swift */,
-			);
-			path = Location;
-			sourceTree = "<group>";
-		};
 		1C3EE9A426CB4A8E0030C463 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +197,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1C3EEA2E26CB658A0030C463 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C3EEA3226CB658A0030C463 /* LocationService.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1C4C258726C73CD3009BABD8 = {
 			isa = PBXGroup;
 			children = (
@@ -221,10 +229,10 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C3EEA2D26CB658A0030C463 /* LocationService.xcodeproj */,
 				1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */,
 				1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */,
 				1C3EE9A426CB4A8E0030C463 /* Modifiers */,
-				1C3EE96C26CACA4E0030C463 /* Location */,
 				1C4C25E326C9F0E3009BABD8 /* Managers */,
 				1C4C25CA26C9A162009BABD8 /* Models */,
 				1C4C25C326C96B44009BABD8 /* Extension */,
@@ -293,7 +301,6 @@
 				1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */,
 				1C4C25E626C9F1F6009BABD8 /* User.swift */,
 				1C3EE96626CAABE70030C463 /* Location.swift */,
-				1C3EE96A26CAC9620030C463 /* Coordinate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +412,10 @@
 					ProjectRef = 1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */;
 				},
 				{
+					ProductGroup = 1C3EEA2E26CB658A0030C463 /* Products */;
+					ProjectRef = 1C3EEA2D26CB658A0030C463 /* LocationService.xcodeproj */;
+				},
+				{
 					ProductGroup = 1C3EE9E026CB5F7F0030C463 /* Products */;
 					ProjectRef = 1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */;
 				},
@@ -431,6 +442,13 @@
 			fileType = wrapper.framework;
 			path = KeyChainService.framework;
 			remoteRef = 1C3EEA0D26CB62C70030C463 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1C3EEA3226CB658A0030C463 /* LocationService.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LocationService.framework;
+			remoteRef = 1C3EEA3126CB658A0030C463 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -471,7 +489,6 @@
 				1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
 				1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */,
-				1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */,
 				1C3EE9A826CB4E9F0030C463 /* Button+Styles.swift in Sources */,
 				1C3EE96926CAC10E0030C463 /* Date+Helper.swift in Sources */,
 				1C3EE9AA26CB50C10030C463 /* TextField+Styles.swift in Sources */,
@@ -486,7 +503,6 @@
 				1C4C25E726C9F1F6009BABD8 /* User.swift in Sources */,
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
 				1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */,
-				1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */,
 				1C3EE9A126CB3E5C0030C463 /* NetworkingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
