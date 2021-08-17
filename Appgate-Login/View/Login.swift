@@ -55,6 +55,7 @@ struct Login: View {
                 messageAlert = "Verify that the data is not empty and try again."
                 
                 if !user.email.isEmpty && !user.password.isEmpty{
+                    user.email = user.email.lowercased()
                     if TaskManager.shared.checkUserCreated(user: user){
                         TaskManager.shared.saveAttempt(user: user, success: true)
                         messageAlert = "Successful validation, congratulations."

@@ -34,14 +34,14 @@ struct SignUp: View {
                         .foregroundColor(.gray)
                     
                     Text(emailAlert)
-                        .font(.system(size: 10.0, weight: .bold))
+                        .font(.system(size: 14.0, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.red)
                         .padding()
                 }
                 
                 TextField("Email", text: $user.email)
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.system(size: 20, weight: .light))
                     .foregroundColor(Color.black)
                     .textContentType(.emailAddress)
                     .onChange(of: user.email){ newValue in
@@ -62,7 +62,7 @@ struct SignUp: View {
                     
                     Text(passwordAlert)
                         .foregroundColor(.red)
-                        .font(.system(size: 10.0, weight: .bold))
+                        .font(.system(size: 14.0, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                 }
@@ -87,7 +87,7 @@ struct SignUp: View {
                         .foregroundColor(.gray)
                     
                     Text(confirmPasswordAlert)
-                        .font(.system(size: 10.0, weight: .bold))
+                        .font(.system(size: 14.0, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.red)
                         .padding()
@@ -115,7 +115,7 @@ struct SignUp: View {
                 messageAlert = "Verify that the data is not empty and try again."
                 
                 if user.email.isValidEmail && user.password.isValidPassword && user.password == confirmPassword {
-                    
+                    user.email = user.email.lowercased()
                     TaskManager.shared.createUser(user: user)
                     user.email = ""
                     user.password = ""
