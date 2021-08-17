@@ -7,16 +7,12 @@
 
 import Foundation
 
-private struct Constants {
-    static let urlLocationRequest = "http://api.geonames.org/timezoneJSON"
-}
-
 class NetworkingManager {
+    private struct Constants {
+        static let urlLocationRequest = "http://api.geonames.org/timezoneJSON"
+    }
     private let queryService = QueryService()
     private let locationService = LocationService()
-    
-    init() {
-    }
     
     func getCurrentTime(completion: @escaping (String) -> Void) {
         if var urlComponents = URLComponents(string: Constants.urlLocationRequest) {
@@ -32,8 +28,7 @@ class NetworkingManager {
                     }
                 }
             }
-        
-        }else{
+        } else{
             completion(Date().currentTime())
         }
     }

@@ -7,84 +7,23 @@
 
 import Foundation
 
-private struct Constants {
-    static let keyChainStoreService = "AppgateLoginService"
-    static let keyChainStoreKeyAttempts = "Attempts"
-}
-
 class TaskManager {
     static let shared = TaskManager()
-    
-    private var keyChainStore: KeyChainStore!
-    private let networkingManager = NetworkingManager()
-    
-    init() {
-      loadTasks()
-    }
-    
-    func loadTasks() {
-        let genericPwdQueryable = keyChainQueryable(service: Constants.keyChainStoreService)
-        keyChainStore = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
-    }
+    private let storageService = StorageService()
     
     func createUser(user: User) {
-        do {
-            try keyChainStore.setValue(user.password, for: user.email)
-        } catch (let e) {
-            print(e.localizedDescription)
-        }
+        storageService.createUser(user: user)
     }
     
     func checkUserCreated(user: User) -> Bool {
-        do {
-            let password = try keyChainStore.getValue(for: user.email)
-            return password == user.password
-        } catch (let e) {
-            print(e.localizedDescription)
-        }
-        
-        return false
+        return storageService.checkUserCreated(user: user)
     }
     
     func saveAttempt(user: User, success: Bool) {
-        getTime { [weak self] time in
-            do {
-                if let attempts = try self?.keyChainStore.getData(for: Constants.keyChainStoreKeyAttempts) {
-                    if var usersAttempts = try? JSONDecoder().decode([UserAttempt].self, from: attempts) {
-                        let attempt = UserAttempt(success: success, time: time, user: user)
-                        usersAttempts.append(attempt)
-                        
-                        if let encoded = try? JSONEncoder().encode(usersAttempts) {
-                            try self?.keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
-                        }
-                    }
-                } else {
-                    let attempt = UserAttempt(success: success, time: time, user: user)
-                    if let encoded = try? JSONEncoder().encode([attempt]) {
-                        try self?.keyChainStore.setData(encoded, for: Constants.keyChainStoreKeyAttempts)
-                    }
-                }
-            } catch (let e) {
-                print(e.localizedDescription)
-            }
-        }
+        storageService.saveAttempt(user: user, success: success)
     }
     
-    func getAllAttempts() -> [UserAttempt]{
-        do {
-            guard let attempts = try keyChainStore.getData(for: Constants.keyChainStoreKeyAttempts),
-            let usersAttempts = try? JSONDecoder().decode([UserAttempt].self, from: attempts) else {
-                return []
-            }
-            return usersAttempts
-            
-        } catch (let e) {
-            print(e.localizedDescription)
-        }
-        return []
-    }
-    
-    func getTime(completion: @escaping (String) -> Void) {
-        networkingManager.getCurrentTime(completion: completion)
+    func getAllAttempts() -> [UserAttempt] {
+        return storageService.getAllAttempts()
     }
 }
