@@ -4,7 +4,8 @@
 
 Description
 The current project is developed in the latest version of Xcode available, which is 13.0 beta 5 (13A5212g), where the programming language used is Swift and the main framework for creating the user interface is SwiftUI.
-
+The project has 3 libraries embedded in the same project and which were added as .frameworks files in it, these are: LocationService, KeyChainService and KeyChainService.
+The project also has built-in test cases of the main data storage and data entry verification functions.
 
 ## App Sections
 
