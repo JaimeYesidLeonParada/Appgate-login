@@ -8,16 +8,19 @@
 import Foundation
 import CoreLocation
 
-public class LocationService: NSObject {
-    
+class LocationService: NSObject {
     private let locationManager = CLLocationManager()
-    var coordinate = Coordinate(latitude: 0.0, longitude: 0.0)
+    private var coordinate = Coordinate(latitude: 0.0, longitude: 0.0)
     
     override init(){
         super.init()
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+    }
+    
+    public func getCurrentLocation() -> Coordinate {
+        return coordinate
     }
     
     deinit{
@@ -32,9 +35,4 @@ extension LocationService: CLLocationManagerDelegate {
             coordinate.longitude = location.coordinate.longitude
         }
     }
-    
-    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-    }
-    
 }

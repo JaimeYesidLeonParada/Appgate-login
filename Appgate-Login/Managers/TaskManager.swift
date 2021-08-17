@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constants {
+private struct Constants {
     static let keyChainStoreService = "AppgateLoginService"
     static let keyChainStoreKeyAttempts = "Attempts"
 }
@@ -15,10 +15,8 @@ struct Constants {
 class TaskManager {
     static let shared = TaskManager()
     
-    private let queryService = QueryService()
-    private let locationService = LocationService()
-    
-    var keyChainStore: KeyChainStore!
+    private var keyChainStore: KeyChainStore!
+    private let networkingManager = NetworkingManager()
     
     init() {
       loadTasks()
@@ -87,6 +85,6 @@ class TaskManager {
     }
     
     func getTime(completion: @escaping (String) -> Void) {
-        queryService.getTime(coordinate: locationService.coordinate, completion: completion)
+        networkingManager.getCurrentTime(completion: completion)
     }
 }

@@ -11,28 +11,21 @@ class QueryService {
     
     private let defaultSession = URLSession(configuration: .default)
     private var dataTask: URLSessionDataTask?
+    
+    typealias QueryResult = (Data?, String) -> Void
         
-    func getTime(coordinate: Coordinate, completion: @escaping (String) -> Void) {
+    func request(with url: URL, completion: @escaping QueryResult) {
         dataTask?.cancel()
-        
-        if var urlComponents = URLComponents(string: "http://api.geonames.org/timezoneJSON") {
-            urlComponents.query = "formatted=true&lat=\(coordinate.latitude)&lng=\(coordinate.longitude)&username=qa_mobile_easy&style=full"
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            defer { self?.dataTask = nil }
             
-            guard let url = urlComponents.url else {
-                return
+            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                completion(data, "")
             }
-            
-            dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
-                defer { self?.dataTask = nil }
-                
-                if let dataLocation = data, let response = response as? HTTPURLResponse, response.statusCode == 200, let location = try? JSONDecoder().decode(Location.self, from: dataLocation) {
-                    completion(Date().currentTime(time: location.time))
-                }
-                else {
-                    completion(Date().currentTime())
-                }
+            else {
+                completion(nil, error?.localizedDescription ?? "error")
             }
-            dataTask?.resume()
         }
+        dataTask?.resume()
     }
 }
