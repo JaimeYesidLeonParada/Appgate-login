@@ -13,6 +13,7 @@
 		1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96A26CAC9620030C463 /* Coordinate.swift */; };
 		1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE96D26CACA780030C463 /* LocationService.swift */; };
 		1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */; };
+		1C3EE99F26CB37CB0030C463 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3EE99E26CB37CB0030C463 /* Launch Screen.storyboard */; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -64,6 +65,7 @@
 		1C3EE96A26CAC9620030C463 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1C3EE96D26CACA780030C463 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		1C3EE99C26CB26CB0030C463 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
+		1C3EE99E26CB37CB0030C463 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */,
 				1C4C25D026C9AA8B009BABD8 /* Info.plist */,
 				1C4C259726C73CD9009BABD8 /* Assets.xcassets */,
+				1C3EE99E26CB37CB0030C463 /* Launch Screen.storyboard */,
 				1C4C259926C73CD9009BABD8 /* Preview Content */,
 			);
 			path = "Appgate-Login";
@@ -351,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3EE99F26CB37CB0030C463 /* Launch Screen.storyboard in Resources */,
 				1C4C259B26C73CD9009BABD8 /* Preview Assets.xcassets in Resources */,
 				1C4C259826C73CD9009BABD8 /* Assets.xcassets in Resources */,
 			);
@@ -567,11 +571,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Appgate-Login/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,11 +604,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Appgate-Login/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
