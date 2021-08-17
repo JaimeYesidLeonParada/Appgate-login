@@ -8,14 +8,14 @@
 import XCTest
 @testable import Appgate_Login
 
-//@testable import KeyChainStore
+@testable import KeyChainService
 
 class KeyChainStoreTests: XCTestCase {
     
     var keychainStore: KeyChainStore!
     
     override func setUpWithError() throws {
-        let genericPwdQueryable = GenericPasswordQueryable(service: "someService")
+        let genericPwdQueryable = keyChainQueryable(service: "someService")
         keychainStore = KeyChainStore(secureStoreQueryable: genericPwdQueryable)
     }
     

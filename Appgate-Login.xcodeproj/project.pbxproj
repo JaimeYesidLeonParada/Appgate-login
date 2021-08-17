@@ -21,6 +21,8 @@
 		1C3EE9AC26CB51BC0030C463 /* SecureField+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EE9AB26CB51BC0030C463 /* SecureField+Styles.swift */; };
 		1C3EE9E826CB60D20030C463 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EE9E426CB5F7F0030C463 /* Networking.framework */; };
 		1C3EE9E926CB60D20030C463 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EE9E426CB5F7F0030C463 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C3EEA0F26CB62DF0030C463 /* KeyChainService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */; };
+		1C3EEA1026CB62DF0030C463 /* KeyChainService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */; };
 		1C420EF726CA8F0100218F7E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 		1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */; };
@@ -37,13 +39,7 @@
 		1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */; };
 		1C4C25CE26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25CD26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift */; };
 		1C4C25CF26C9A7A0009BABD8 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25C426C96C2D009BABD8 /* String+Helper.swift */; };
-		1C4C25D326C9AF64009BABD8 /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */; };
-		1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */; };
-		1C4C25D726C9B017009BABD8 /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */; };
 		1C4C25DD26C9B3D0009BABD8 /* KeyChainStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25DC26C9B3D0009BABD8 /* KeyChainStoreTests.swift */; };
-		1C4C25DE26C9B5EA009BABD8 /* KeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */; };
-		1C4C25DF26C9B5FB009BABD8 /* KeyChainStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */; };
-		1C4C25E026C9B5FB009BABD8 /* KeyChainStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */; };
 		1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E426C9F0F6009BABD8 /* TaskManager.swift */; };
 		1C4C25E726C9F1F6009BABD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C25E626C9F1F6009BABD8 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +51,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 1C3EE9D326CB5EA60030C463;
 			remoteInfo = Networking;
+		};
+		1C3EEA0D26CB62C70030C463 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1C3EE9F726CB62480030C463;
+			remoteInfo = KeyChainService;
 		};
 		1C4C25A126C73CDA009BABD8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1C3EEA1026CB62DF0030C463 /* KeyChainService.framework in Embed Frameworks */,
 				1C3EE9E926CB60D20030C463 /* Networking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -100,6 +104,7 @@
 		1C3EE9A926CB50C10030C463 /* TextField+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Styles.swift"; sourceTree = "<group>"; };
 		1C3EE9AB26CB51BC0030C463 /* SecureField+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecureField+Styles.swift"; sourceTree = "<group>"; };
 		1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = ../../Networking/Networking.xcodeproj; sourceTree = "<group>"; };
+		1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyChainService.xcodeproj; path = ../../KeyChainService/KeyChainService.xcodeproj; sourceTree = "<group>"; };
 		1C420EF526CA1AC900218F7E /* UIApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helper.swift"; sourceTree = "<group>"; };
 		1C4C259026C73CD3009BABD8 /* Appgate-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appgate-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4C259326C73CD3009BABD8 /* Appgate_LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginApp.swift; sourceTree = "<group>"; };
@@ -118,9 +123,6 @@
 		1C4C25CB26C9A190009BABD8 /* UserAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAttempt.swift; sourceTree = "<group>"; };
 		1C4C25CD26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appgate_LoginTests_String_Helper.swift; sourceTree = "<group>"; };
 		1C4C25D026C9AA8B009BABD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStore.swift; sourceTree = "<group>"; };
-		1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreQueryable.swift; sourceTree = "<group>"; };
-		1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreError.swift; sourceTree = "<group>"; };
 		1C4C25DC26C9B3D0009BABD8 /* KeyChainStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStoreTests.swift; sourceTree = "<group>"; };
 		1C4C25E426C9F0F6009BABD8 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		1C4C25E626C9F1F6009BABD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3EEA0F26CB62DF0030C463 /* KeyChainService.framework in Frameworks */,
 				1C3EE9E826CB60D20030C463 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +189,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1C3EEA0A26CB62C70030C463 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1C4C258726C73CD3009BABD8 = {
 			isa = PBXGroup;
 			children = (
@@ -210,11 +221,11 @@
 		1C4C259226C73CD3009BABD8 /* Appgate-Login */ = {
 			isa = PBXGroup;
 			children = (
+				1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */,
 				1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */,
 				1C3EE9A426CB4A8E0030C463 /* Modifiers */,
 				1C3EE96C26CACA4E0030C463 /* Location */,
 				1C4C25E326C9F0E3009BABD8 /* Managers */,
-				1C4C25D126C9AF35009BABD8 /* KeyChainService */,
 				1C4C25CA26C9A162009BABD8 /* Models */,
 				1C4C25C326C96B44009BABD8 /* Extension */,
 				1C4C25BE26C74F16009BABD8 /* View */,
@@ -285,16 +296,6 @@
 				1C3EE96A26CAC9620030C463 /* Coordinate.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		1C4C25D126C9AF35009BABD8 /* KeyChainService */ = {
-			isa = PBXGroup;
-			children = (
-				1C4C25D226C9AF64009BABD8 /* KeyChainStore.swift */,
-				1C4C25D426C9AFC1009BABD8 /* KeyChainStoreQueryable.swift */,
-				1C4C25D626C9B017009BABD8 /* KeyChainStoreError.swift */,
-			);
-			path = KeyChainService;
 			sourceTree = "<group>";
 		};
 		1C4C25E326C9F0E3009BABD8 /* Managers */ = {
@@ -400,6 +401,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 1C3EEA0A26CB62C70030C463 /* Products */;
+					ProjectRef = 1C3EEA0926CB62C70030C463 /* KeyChainService.xcodeproj */;
+				},
+				{
 					ProductGroup = 1C3EE9E026CB5F7F0030C463 /* Products */;
 					ProjectRef = 1C3EE9DF26CB5F7F0030C463 /* Networking.xcodeproj */;
 				},
@@ -419,6 +424,13 @@
 			fileType = wrapper.framework;
 			path = Networking.framework;
 			remoteRef = 1C3EE9E326CB5F7F0030C463 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1C3EEA0E26CB62C70030C463 /* KeyChainService.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KeyChainService.framework;
+			remoteRef = 1C3EEA0D26CB62C70030C463 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -458,7 +470,6 @@
 				1C4C25C026C74F6F009BABD8 /* Login.swift in Sources */,
 				1C420EF626CA1AC900218F7E /* UIApplication+Helper.swift in Sources */,
 				1C4C25C226C75041009BABD8 /* SignUp.swift in Sources */,
-				1C4C25D526C9AFC1009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
 				1C3EE99D26CB26CB0030C463 /* UIView+Helper.swift in Sources */,
 				1C3EE96B26CAC9620030C463 /* Coordinate.swift in Sources */,
 				1C3EE9A826CB4E9F0030C463 /* Button+Styles.swift in Sources */,
@@ -467,7 +478,6 @@
 				1C4C25E526C9F0F6009BABD8 /* TaskManager.swift in Sources */,
 				1C4C259626C73CD3009BABD8 /* Home.swift in Sources */,
 				1C3EE9AC26CB51BC0030C463 /* SecureField+Styles.swift in Sources */,
-				1C4C25D726C9B017009BABD8 /* KeyChainStoreError.swift in Sources */,
 				1C4C25C926C98255009BABD8 /* Attempt.swift in Sources */,
 				1C3EE96726CAABE70030C463 /* Location.swift in Sources */,
 				1C3EE9A326CB46F90030C463 /* StorageService.swift in Sources */,
@@ -477,7 +487,6 @@
 				1C4C259426C73CD3009BABD8 /* Appgate_LoginApp.swift in Sources */,
 				1C4C25CC26C9A190009BABD8 /* UserAttempt.swift in Sources */,
 				1C3EE96E26CACA780030C463 /* LocationService.swift in Sources */,
-				1C4C25D326C9AF64009BABD8 /* KeyChainStore.swift in Sources */,
 				1C3EE9A126CB3E5C0030C463 /* NetworkingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,12 +495,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4C25DE26C9B5EA009BABD8 /* KeyChainStore.swift in Sources */,
 				1C4C25A526C73CDA009BABD8 /* Appgate_LoginTests.swift in Sources */,
-				1C4C25DF26C9B5FB009BABD8 /* KeyChainStoreQueryable.swift in Sources */,
 				1C4C25CF26C9A7A0009BABD8 /* String+Helper.swift in Sources */,
 				1C420EF726CA8F0100218F7E /* User.swift in Sources */,
-				1C4C25E026C9B5FB009BABD8 /* KeyChainStoreError.swift in Sources */,
 				1C4C25CE26C9A71D009BABD8 /* Appgate_LoginTests_String_Helper.swift in Sources */,
 				1C4C25DD26C9B3D0009BABD8 /* KeyChainStoreTests.swift in Sources */,
 			);
